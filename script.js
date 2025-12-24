@@ -15,7 +15,7 @@ async function sendMessage() {
   input.value = "";
 
   // ⬇️ HIER KOMT STRAKS MAKE
-  const response = await fetch("https://hook.eu1.make.com/ift4efmjb6k98hpx56q8szui6wtomfsr", {
+  const response = await fetch("https://hook.eu1.make.com/vqyumct4e43ey9hctwkensd99dy7g78n", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: text })
