@@ -15,7 +15,7 @@ async function sendMessage() {
   input.value = "";
 
   // ⬇️ HIER KOMT STRAKS MAKE
-  const response = await fetch("PLAK_HIER_JE_MAKE_WEBHOOK", {
+  const response = await fetch("https://hook.eu1.make.com/ift4efmjb6k98hpx56q8szui6wtomfsr", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: text })
