@@ -1,28 +1,32 @@
 const chat = document.getElementById("chat");
+const form = document.getElementById("chat-form");
 const input = document.getElementById("message");
-const button = document.getElementById("send");
 
-button.addEventListener("click", sendMessage);
-input.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") sendMessage();
-});
+function addMessage(text, sender) {
+  const div = document.createElement("div");
+  div.classList.add("message", sender);
+  div.textContent = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
 
-async function sendMessage() {
+// Startbericht van de bot
+addMessage(
+  "Ik kan je helpen een game te kiezen, maar ik heb wel wat info nodig. Op welk platform speel je?",
+  "bot"
+);
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
   const text = input.value.trim();
   if (!text) return;
 
-  chat.innerHTML += `<div class="user">Jij:</div><div>${text}</div>`;
+  addMessage(text, "user");
   input.value = "";
 
-  // ⬇️ HIER KOMT STRAKS MAKE
-  const response = await fetch("https://hook.eu1.make.com/vqyumct4e43ey9hctwkensd99dy7g78n", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: text })
-  });
-
-  const data = await response.json();
-
-  chat.innerHTML += `<div class="bot"><strong>Adviseur:</strong><br>${data.answer}</div>`;
-  chat.scrollTop = chat.scrollHeight;
-}
+  // Tijdelijke nep-reactie (backend komt later)
+  setTimeout(() => {
+    addMessage("Helder. Vertel me iets meer.", "bot");
+  }, 600);
+});
