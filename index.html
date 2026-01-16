@@ -2,18 +2,27 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <title>Film Adviseur</title>
+  <title>Game-expert chatbot</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="chat-container">
+    <div class="chat-header">
+      🎮 Game-expert
+    </div>
 
-  <h2>🎬 Film Adviseur</h2>
+    <div id="chat" class="chat-messages"></div>
 
-  <div id="chat"></div>
-
-  <div id="input">
-    <input id="message" placeholder="Wat wil je kijken?" />
-    <button id="send">Verstuur</button>
+    <form id="chat-form" class="chat-input">
+      <input
+        type="text"
+        id="message"
+        placeholder="Typ je bericht..."
+        autocomplete="off"
+        required
+      />
+      <button type="submit">Verstuur</button>
+    </form>
   </div>
 
   <script src="script.js"></script>
